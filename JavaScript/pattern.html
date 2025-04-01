@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+// Pattern 3: Downward Left Triangle
+   let num = 5;
+   let pattern = "";    //pattern string
+        if (num > 1) {      //no star pattern for 0 or negative numbers.
+            for (let i = 1; i <= num; i++) {    //first 'for loop' for horizontal lines
+                for (let j = 0; j <= (num-i); j++) {    //second 'for loop' for opposite pattern; see loop condition
+                    pattern += "123 ";
+                }
+                pattern += "\n";    //new line after row completion
+            }
+            console.log(pattern);   //printing star to console
+        }
+        else {
+            pattern = "Number must be greater than 1 to print star pattern.";
+        }
+
+        // num = 5, pattern = ""
+        // Step 1:  5 > 1 - T
+                    // i = 1, 1 < = 5 - T
+                    // j = 1, 1 < = 1 - T
+                    // 1
+        // Step 2:  j = 2, 2 < = 1 - F
+                    // 1
+        // --------------------------------------
+        // Step 3:  i = 2, 2 < = 5 - T
+                    // j = 1, 1 < = 2 - T
+                    // 1
+                    // 2  
+        // Step 4:  j = 2, 2 < = 2 - F
+                    // 1   
+                    // 2   2
+        // Step 5:  j = 3, 3 < = 2 - F
+                    // 1  
+                    // 2  2
+        // --------------------------------------
+        // Step 6:  i = 3, 3 < = 5 - T
+                    // j = 1, 1 < = 3 - T
+                    // 1
+                    // 2   2
+                    // 3   
+        // Step 7:  j = 2, 2 < = 3 - T
+                    // 1   
+                    // 2   2
+                    // 3   3
+        // Step 8:  j = 3, 3 < = 3 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+        // Step 9:  j = 4, 4 < = 3 - F
+                    // 1   
+                    // 2   2
+                    // 3   3  3
+        // --------------------------------------
+        // Step 10:  i = 4, 4 < = 5 - T
+                    // j = 1, 1 < = 4 - T
+                    // 1
+                    // 2   2
+                    // 3   3   3
+                    // 4 
+        // Step 11:  j = 2, 2 < = 4 - T
+                    // 1
+                    // 2   2
+                    // 3   3   3
+                    // 4   4
+        // Step 12:  j = 3, 3 < = 4 - T
+                    // 1  
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4
+        // Step 13:  j = 4, 4 < = 4 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+        // Step 14:  j = 5, 5 < = 4 - F
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+        // --------------------------------------
+        // Step 15:  i = 5, 5 < = 5 - T
+                    // j = 1, 1 < = 5 - T
+                    // 1
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5 
+        // Step 16:  j = 2, 2 < = 5 - T
+                    // 1
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5   5
+        // Step 17:  j = 3, 3 < = 5 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5   5   5
+        // Step 18:  j = 4, 4 < = 5 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5   5   5   5
+        // Step 19:  j = 5, 5 < = 5 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5   5   5   5   5
+        // Step 20:  j = 6, 6 < = 5 - F
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+                    // 4   4   4   4
+                    // 5   5   5   5   5
+//-------------------------------------------------------
+// For J value pattern
+        // num = 5, pattern = ""
+        // Step 1:  5 > 1 - T
+                    // i = 1, 1 < = 5 - T
+                    // j = 1, 1 < = 1 - T
+                    // 1
+        // Step 2:  j = 2, 2 < = 1 - F
+                    // 1
+        // --------------------------------------
+        // Step 3:  i = 2, 2 < = 5 - T
+                    // j = 1, 1 < = 2 - T
+                    // 1
+                    // 1   
+        // Step 4:  j = 2, 2 < = 2 - F
+                    // 1   
+                    // 1  2
+        // Step 5:  j = 3, 3 < = 2 - F
+                    // 1   
+                    // 1   2
+        // --------------------------------------
+        // Step 6:  i = 3, 3 < = 5 - T
+                    // j = 1, 1 < = 3 - T
+                    // 1
+                    // 1   2
+                    // 1  
+        // Step 7:  j = 2, 2 < = 3 - T
+                    // 1   
+                    // 1   2
+                    // 1   3
+        // Step 8:  j = 3, 3 < = 3 - T
+                    // 1   
+                    // 2   2
+                    // 3   3   3
+        // Step 9:  j = 4, 4 < = 3 - F
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+        // --------------------------------------
+        // Step 10:  i = 4, 4 < = 5 - T
+                    // j = 1, 1 < = 4 - T
+                    // 1
+                    // 2   2
+                    // 3   3   3
+                    // 4 
+        // Step 11:  j = 2, 2 < = 4 - T
+                    // 1
+                    //1   2
+                    //1   2   3
+                    //1   2
+        // Step 12:  j = 3, 3 < = 4 - T
+                    // 1  
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3
+        // Step 13:  j = 4, 4 < = 4 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   4   4
+        // Step 14:  j = 5,25 < = 4 - F
+                    // 1   2
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+        // --------------------------------------
+        // Step 15:  i = 5, 5 < = 5 - T
+                    // j = 1, 1 < = 5 - T
+                    // 1
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1 
+        // Step 16:  j = 2, 2 < = 5 - T
+                    // 1
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2
+        // Step 17:  j = 3, 3 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3
+        // Step 18:  j = 4, 4 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3   4
+        // Step 19:  j = 5, 5 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3   4   5
+        // Step 20:  j = 6, 6 < = 5 - F
+                    // 1   
+                    // 1  2
+                    // 1  2   3
+                    // 1  2   3   4
+                    // 1  2   3   4   5
+//-------------------------------------------------------
+    </script>
+    <script>
+        var Num = 10,second = 20;
+        console.log('The value of \'Num\' is ' + Num + ".The second value is " + second);
+        // if we use single qoute or double qoute within that it shows error .
+        // So inorder to overcome this error we use the:Template sequence \ \
+        console.log(`The value of 'Num' is ${Num}.The "second" value is  ${second}.`);
+       // We use $(dollar symbol) to assign the numbers and 
+       // {}:to write the number within that we use flowerbrackets.
+    </script>
+    <script>
+        // left upward triangle
+         //let num = 5;
+         //let pattern = "";    //pattern string
+        if (num > 1) {      //no star pattern for 0 or negative numbers.
+    for (let i = 1; i <= num; i++) {    //first 'for loop' for horizontal lines
+        for (let j = 1; j <= i; j++) {      //second 'for loop' to print star
+            pattern += "123 ";    //adding * to pattern string
+        }
+        pattern += "\n";    //new line after row completion
+    }
+    console.log(pattern);   //printing star to console
+}
+else {
+    pattern = "Number must be greater than 1 to print star pattern.";
+}
+          // num = 5, pattern = ""
+        // Step 1:  5 > 1 - T
+                    // i = 1, 1 < = 5 - T
+                    // j = 1, 1 < = 1 - T
+                    // 1
+        // Step 2:  j = 2, 2 < = 1 - F
+                    // 1
+        // --------------------------------------
+        // Step 3:  i = 2, 2 < = 5 - T
+                    // j = 1, 1 < = 2 - T
+                    // 1
+                    // 1  
+        // Step 4:  j = 2, 2 < = 2 - F
+                    // 1   
+                    // 1   2
+        // Step 5:  j = 3, 3 < = 2 - F
+                    // 1   
+                    // 1   2
+        // --------------------------------------
+        // Step 6:  i = 3, 3 < = 5 - T
+                    // j = 1, 1 < = 3 - T
+                    // 1
+                    // 1   
+                    // 1   2
+        // Step 7:  j = 2, 2 < = 3 - T
+                    // 1   
+                    // 1   2
+                    // 1   2
+        // Step 8:  j = 3, 3 < = 3 - T
+                    // 1   
+                    // 1  2
+                    // 1  2   3
+        // Step 9:  j = 4, 4 < = 3 - F
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+        // --------------------------------------
+        // Step 10:  i = 4, 4 < = 5 - T
+                    // j = 1, 1 < = 4 - T
+                    // 1
+                    // 1   
+                    // 1   2   
+                    // 1   2   3
+        // Step 11:  j = 2, 2 < = 4 - T
+                    // 1
+                    // 1   2
+                    // 1   2   
+                    // 1   2   3
+        // Step 12:  j = 3, 3 < = 4 - T
+                    // 1  
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3
+        // Step 13:  j = 4, 4 < = 4 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+        // Step 14:  j = 5, 5 < = 4 - F
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+        // --------------------------------------
+        // Step 15:  i = 5, 5 < = 5 - T
+                    // j = 1, 1 < = 5 - T
+                    // 1
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3    
+        // Step 16:  j = 2, 2 < = 5 - T
+                    // 1
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3   4
+        // Step 17:  j = 3, 3 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3   4
+        // Step 18:  j = 4, 4 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4
+                    // 1   2   3   4 5
+        // Step 19:  j = 5, 5 < = 5 - T
+                    // 1   
+                    // 1   2
+                    // 1   2   3
+                    // 1   2   3   4   5
+                    // 1   2   3   4   5
+        // Step 20:  j = 6, 6 < = 5 - F
+                    // 1   
+                    // 1   2
+                    // 1   2  3
+                    // 1   2  3   4
+                    // 1   2  3   4   5
+    
+    </script>
+</body>
+</html>
